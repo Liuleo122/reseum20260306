@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柳立哲 | 個人履歷 - 亞洲大學</title>
+    <style>
+        /* --- CSS 樣式區域 --- */
+        :root {
+            --primary-color: #005a92; /* 亞大形象色系參考 */
+            --secondary-color: #3498db;
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --card-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            font-family: 'Segoe UI', "Microsoft JhengHei", sans-serif;
+            background: var(--bg-gradient);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            color: #2c3e50;
+        }
+
+        .resume-card {
+            background: var(--card-bg);
+            max-width: 850px;
+            width: 100%;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resume-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--primary-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+        }
+
+        .student-info {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .skill-tag:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #contact-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,90,146,0.3);
+            transition: all 0.3s;
+        }
+
+        #contact-btn:hover {
+            background: #003d63;
+            box-shadow: 0 6px 20px rgba(0,90,146,0.4);
+        }
+
+        @media (max-width: 600px) {
+            .grid-container { grid-template-columns: 1fr; }
+            .resume-card { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-card">
+        <header>
+            <h1 id="user-name">柳立哲</h1>
+            <div class="student-info">
+                <span>亞洲大學 Asia University</span> | 
+                <span>學號：AU114022058</span>
+            </div>
+        </header>
+
+        <div class="grid-container">
+            <div class="left-col">
+                <section>
+                    <h2>關於我</h2>
+                    <p>目前就讀於亞洲大學，熱衷於探索新技術與程式開發。具備良好的邏輯思維與團隊合作精神，致力於將所學應用於實際專案中。</p>
+                </section>
+
+                <section>
+                    <h2>教育背景</h2>
+                    <ul class="info-list">
+                        <li><strong>亞洲大學</strong> - 在學中</li>
+                        <li>資訊工程相關系所 (可自行修改)</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="right-col">
+                <section>
+                    <h2>核心技能</h2>
+                    <div class="skill-container" id="skill-box">
+                        </div>
+                </section>
+
+                <section>
+                    <h2>自我期許</h2>
+                    <p>希望能透過持續的實作練習，精進前端與後端開發能力，並在未來參與具影響力的軟體專案。</p>
+                </section>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <button id="contact-btn">取得聯絡資訊</button>
+        </div>
+    </div>
+
+    <script>
+        /* --- JavaScript 互動區域 --- */
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. 動態加載技能
+            const skills = ['HTML5', 'CSS3', 'JavaScript', 'Python', '邏輯分析', '團隊合作'];
+            const skillBox = document.getElementById('skill-box');
+
+            skills.forEach(skill => {
+                const tag = document.createElement('span');
+                tag.className = 'skill-tag';
+                tag.innerText = skill;
+                skillBox.appendChild(tag);
+            });
+
+            // 2. 按鈕互動效果
+            const btn = document.getElementById('contact-btn');
+            btn.addEventListener('click', () => {
+                const email = "AU114022058@asia.edu.tw"; // 預設亞大學生信箱格式
+                alert(`你好，立哲！\n\n聯絡信箱可能為：\n${email}`);
+                console.log("正在查看柳立哲(AU114022058)的履歷...");
+            });
+
+            // 3. 點擊名字的小特效
+            const nameH1 = document.getElementById('user-name');
+            nameH1.addEventListener('mouseover', () => {
+                nameH1.style.transition = "0.5s";
+                nameH1.style.letterSpacing = "10px";
+            });
+            nameH1.addEventListener('mouseout', () => {
+                nameH1.style.letterSpacing = "2px";
+            });
+        });
+    </script>
+
+</body>
+</html>
