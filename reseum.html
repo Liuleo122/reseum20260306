@@ -43,6 +43,26 @@
             background: var(--primary-color);
         }
 
+        /* --- 大頭貼樣式 --- */
+        .profile-photo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-photo {
+            width: 150px; /* 照片寬度 */
+            height: 150px; /* 照片高度 */
+            border-radius: 50%; /* 變成圓形 */
+            object-fit: cover; /* 裁切並填滿圓形 */
+            border: 5px solid white; /* 白色外框 */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* 微微的陰影 */
+            transition: 0.3s;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05) rotate(5deg); /* 滑鼠移上去放大並旋轉 */
+        }
+
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -52,13 +72,12 @@
 
         header h1 {
             font-size: 2.5rem;
-            margin: 0;
+            margin: 10px 0;
             color: var(--primary-color);
             letter-spacing: 2px;
         }
 
         .contact-info {
-            margin-top: 15px;
             color: #555;
             font-size: 1rem;
             line-height: 1.8;
@@ -126,6 +145,7 @@
 
         @media (max-width: 600px) {
             .grid-container { grid-template-columns: 1fr; }
+            .profile-photo { width: 120px; height: 120px; }
         }
     </style>
 </head>
@@ -133,6 +153,10 @@
 
     <div class="resume-card">
         <header>
+            <div class="profile-photo-container">
+                <img src="images/image_3.png" alt="柳立哲的照片" class="profile-photo">
+            </div>
+
             <h1 id="my-name">柳立哲</h1>
             <div class="contact-info">
                 <div><strong>亞洲大學 Asia University</strong></div>
