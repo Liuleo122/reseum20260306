@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>柳立哲 | 個人履歷 - 亞洲大學</title>
     <style>
-        /* CSS 樣式設定 */
         :root {
-            --primary-color: #005a92; /* 亞大形象色 */
+            --primary-color: #005a92; 
             --secondary-color: #3498db;
             --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             --card-bg: rgba(255, 255, 255, 0.95);
@@ -43,24 +42,20 @@
             background: var(--primary-color);
         }
 
-        /* --- 大頭貼樣式 --- */
         .profile-photo-container {
             text-align: center;
             margin-bottom: 20px;
         }
 
         .profile-photo {
-            width: 150px; /* 照片寬度 */
-            height: 150px; /* 照片高度 */
-            border-radius: 50%; /* 變成圓形 */
-            object-fit: cover; /* 裁切並填滿圓形 */
-            border: 5px solid white; /* 白色外框 */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* 微微的陰影 */
+            width: 160px; 
+            height: 160px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             transition: 0.3s;
-        }
-
-        .profile-photo:hover {
-            transform: scale(1.05) rotate(5deg); /* 滑鼠移上去放大並旋轉 */
+            background-color: #eee; /* 圖片載入前的底色 */
         }
 
         header {
@@ -74,7 +69,6 @@
             font-size: 2.5rem;
             margin: 10px 0;
             color: var(--primary-color);
-            letter-spacing: 2px;
         }
 
         .contact-info {
@@ -113,12 +107,6 @@
             border-radius: 20px;
             font-size: 0.85rem;
             margin: 5px;
-            transition: 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
         }
 
         .footer-action {
@@ -134,18 +122,10 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        #action-btn:hover {
-            background: #003d63;
-            transform: scale(1.05);
         }
 
         @media (max-width: 600px) {
             .grid-container { grid-template-columns: 1fr; }
-            .profile-photo { width: 120px; height: 120px; }
         }
     </style>
 </head>
@@ -154,15 +134,15 @@
     <div class="resume-card">
         <header>
             <div class="profile-photo-container">
-                <img src="images/image_3.png" alt="柳立哲的照片" class="profile-photo">
+                <img src="images/27396.jpg?v=1" alt="柳立哲的照片" class="profile-photo">
             </div>
 
-            <h1 id="my-name">柳立哲</h1>
+            <h1>柳立哲</h1>
             <div class="contact-info">
                 <div><strong>亞洲大學 Asia University</strong></div>
                 <div>學號：AU114022058</div>
                 <div>📞 電話：0902-172-126</div>
-                <div>✉️ 信箱：<a href="mailto:liuleo951113@gmail.com" style="color: inherit; text-decoration: none;">liuleo951113@gmail.com</a></div>
+                <div>✉️ 信箱：liuleo951113@gmail.com</div>
             </div>
         </header>
 
@@ -177,14 +157,14 @@
                 </section>
                 <section>
                     <h2>關於我</h2>
-                    <p>你好，我是立哲！目前就讀於亞洲大學。我對程式開發充滿好奇心，喜歡透過程式碼解決生活中的問題，並持續學習網頁前端技術與 Git 版本控制。</p>
+                    <p>你好，我是立哲！目前就讀於亞洲大學。我對程式開發充滿好奇心，喜歡透過程式碼解決生活中的問題，並持續學習網頁技術與 Git 版本控制。</p>
                 </section>
             </div>
 
             <div class="right-col">
                 <section>
                     <h2>專業技能</h2>
-                    <div id="skill-list">
+                    <div>
                         <span class="skill-tag">HTML / CSS</span>
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">Git / GitHub</span>
@@ -194,7 +174,7 @@
                 </section>
                 <section>
                     <h2>自我期許</h2>
-                    <p>希望能將在亞大所學的理論與實務結合，目標是開發出簡潔、美觀且具備良好使用者體驗的網頁應用程式。</p>
+                    <p>希望能將在亞大所學的理論與實務結合，開發出兼具美感與實用性的網頁應用程式。</p>
                 </section>
             </div>
         </div>
@@ -205,23 +185,8 @@
     </div>
 
     <script>
-        // JavaScript 互動邏輯
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('action-btn');
-            
-            btn.addEventListener('click', () => {
-                alert('柳立哲 (AU114022058) 感謝您的查看！\n聯絡電話：0902-172-126\n信箱：liuleo951113@gmail.com');
-            });
-
-            // 滑鼠移到名字上的小效果
-            const nameEl = document.getElementById('my-name');
-            nameEl.addEventListener('mouseover', () => {
-                nameEl.style.color = '#3498db';
-                nameEl.style.transition = '0.3s';
-            });
-            nameEl.addEventListener('mouseout', () => {
-                nameEl.style.color = '#005a92';
-            });
+        document.getElementById('action-btn').addEventListener('click', () => {
+            alert('感謝查看！聯絡信箱：liuleo951113@gmail.com');
         });
     </script>
 
