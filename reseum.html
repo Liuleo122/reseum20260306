@@ -6,189 +6,162 @@
     <title>柳立哲 | 個人履歷 - 亞洲大學</title>
     <style>
         :root {
-            --primary-color: #005a92; 
-            --secondary-color: #3498db;
-            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            --card-bg: rgba(255, 255, 255, 0.95);
+            --sidebar-bg: #1a2a3a; /* 深藍偏灰，更穩重 */
+            --main-bg: #f8f9fa;
+            --accent-color: #3498db;
+            --text-main: #333;
+            --text-side: #ecf0f1;
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Segoe UI', "Microsoft JhengHei", sans-serif;
-            background: var(--bg-gradient);
-            margin: 0;
-            padding: 40px 20px;
+            background-color: var(--main-bg);
+            color: var(--text-main);
             display: flex;
             justify-content: center;
-            color: #2c3e50;
             min-height: 100vh;
+            padding: 30px 15px;
         }
 
-        .resume-card {
-            background: var(--card-bg);
-            max-width: 800px;
+        .resume-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            background: #fff;
             width: 100%;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            position: relative;
+            max-width: 950px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             overflow: hidden;
         }
 
-        .resume-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 10px;
-            background: var(--primary-color);
-        }
-
-        .profile-photo-container {
+        /* 左側邊欄 */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            color: var(--text-side);
+            padding: 40px 25px;
             text-align: center;
-            margin-bottom: 20px;
         }
 
         .profile-photo {
-            width: 160px; 
-            height: 160px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            border: 5px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar h1 { font-size: 1.8rem; margin-bottom: 10px; letter-spacing: 2px; }
+        
+        .sidebar-info { text-align: left; margin-top: 30px; font-size: 0.9rem; }
+        .info-item { margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
+        .info-label { color: var(--accent-color); font-weight: bold; display: block; margin-bottom: 3px; }
+
+        .skill-box { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .skill-tag { 
+            background: rgba(255,255,255,0.1); 
+            padding: 4px 10px; 
+            border-radius: 4px; 
+            font-size: 0.75rem;
             transition: 0.3s;
-            background-color: #eee; /* 圖片載入前的底色 */
         }
+        .skill-tag:hover { background: var(--accent-color); }
 
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin: 10px 0;
-            color: var(--primary-color);
-        }
-
-        .contact-info {
-            color: #555;
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        section { margin-bottom: 25px; }
-
-        h2 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            border-left: 5px solid var(--secondary-color);
-            padding-left: 12px;
-            margin-bottom: 15px;
-        }
-
-        .info-list { list-style: none; padding: 0; }
-        .info-list li {
-            padding: 10px 0;
-            border-bottom: 1px dashed #ddd;
-        }
-
-        .skill-tag {
+        /* 右側主內容 */
+        .main-content { padding: 45px; }
+        
+        .section { margin-bottom: 35px; }
+        .section-title { 
+            font-size: 1.4rem; 
+            color: var(--sidebar-bg); 
+            border-bottom: 2px solid var(--accent-color); 
             display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin: 5px;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
         }
 
-        .footer-action {
-            text-align: center;
-            margin-top: 20px;
-        }
+        .content-box { border-left: 2px solid #eee; padding-left: 20px; margin-left: 5px; }
+        .item-title { font-weight: bold; font-size: 1.1rem; color: #222; }
+        .item-date { color: var(--accent-color); font-size: 0.85rem; margin-bottom: 5px; font-weight: 600; }
+        .item-desc { font-size: 0.95rem; color: #666; margin-top: 8px; line-height: 1.7; }
 
-        #action-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 40px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        @media (max-width: 600px) {
-            .grid-container { grid-template-columns: 1fr; }
+        @media (max-width: 768px) {
+            .resume-container { grid-template-columns: 1fr; }
+            .main-content { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="resume-card">
-        <header>
-            <div class="profile-photo-container">
-                <img src="images/27396.jpg?v=1" alt="柳立哲的照片" class="profile-photo">
-            </div>
-
+    <div class="resume-container">
+        <aside class="sidebar">
+            <img src="images/27396.jpg" alt="柳立哲" class="profile-photo">
             <h1>柳立哲</h1>
-            <div class="contact-info">
-                <div><strong>亞洲大學 Asia University</strong></div>
-                <div>學號：AU114022058</div>
-                <div>📞 電話：0902-172-126</div>
-                <div>✉️ 信箱：liuleo951113@gmail.com</div>
-            </div>
-        </header>
+            
+            <div class="sidebar-info">
+                <div class="info-item">
+                    <span class="info-label">EDUCATION</span>
+                    亞洲大學 Asia University
+                </div>
+                <div class="info-item">
+                    <span class="info-label">STUDENT ID</span>
+                    AU114022058
+                </div>
+                <div class="info-item">
+                    <span class="info-label">PHONE</span>
+                    0902-172-126
+                </div>
+                <div class="info-item">
+                    <span class="info-label">EMAIL</span>
+                    liuleo951113@gmail.com
+                </div>
 
-        <div class="grid-container">
-            <div class="left-col">
-                <section>
-                    <h2>教育背景</h2>
-                    <ul class="info-list">
-                        <li><strong>亞洲大學</strong></li>
-                        <li>資訊工程相關專業 (在學中)</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>關於我</h2>
-                    <p>你好，我是立哲！目前就讀於亞洲大學。我對程式開發充滿好奇心，喜歡透過程式碼解決生活中的問題，並持續學習網頁技術與 Git 版本控制。</p>
-                </section>
-            </div>
-
-            <div class="right-col">
-                <section>
-                    <h2>專業技能</h2>
-                    <div>
+                <div class="sidebar-info" style="margin-top: 20px;">
+                    <span class="info-label">SKILLS</span>
+                    <div class="skill-box">
                         <span class="skill-tag">HTML / CSS</span>
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">Git / GitHub</span>
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">問題分析</span>
+                        <span class="skill-tag">Problem Solving</span>
                     </div>
-                </section>
-                <section>
-                    <h2>自我期許</h2>
-                    <p>希望能將在亞大所學的理論與實務結合，開發出兼具美感與實用性的網頁應用程式。</p>
-                </section>
+                </div>
             </div>
-        </div>
+        </aside>
 
-        <div class="footer-action">
-            <button id="action-btn">與我聯繫</button>
-        </div>
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title">關於我</h2>
+                <p class="item-desc">
+                    你好，我是立哲！目前就讀於亞洲大學。我對程式開發充滿好奇心，喜歡透過程式碼解決生活中的問題。目前正致力於精進網頁前端技術與 Git 版本控制，希望能打造出簡潔且具備優質使用者體驗的網頁應用。
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">教育背景</h2>
+                <div class="content-box">
+                    <p class="item-date">2022 - 2026 (在學中)</p>
+                    <p class="item-title">資訊工程學系</p>
+                    <p class="item-desc">在亞洲大學學習資工相關專業知識，並在實作過程中探索前端技術的無限可能。</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">專案與期許</h2>
+                <div class="content-box">
+                    <p class="item-title">個人化履歷開發專案</p>
+                    <p class="item-desc">
+                        * 使用 HTML5、CSS3 與 JavaScript 獨立開發。<br>
+                        * 運用 Git 進行版本管理並部署於 GitHub Pages。<br>
+                        * 學習如何處理響應式佈局與跨團隊（協作者）開發流程。
+                    </p>
+                </div>
+            </section>
+        </main>
     </div>
-
-    <script>
-        document.getElementById('action-btn').addEventListener('click', () => {
-            alert('感謝查看！聯絡信箱：liuleo951113@gmail.com');
-        });
-    </script>
 
 </body>
 </html>
