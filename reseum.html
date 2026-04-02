@@ -6,11 +6,31 @@
     <title>柳立哲 | 個人履歷 - 亞洲大學</title>
     <style>
         :root {
-            --sidebar-bg: #1a2a3a; /* 深藍偏灰，更穩重 */
+            --sidebar-bg: #1a2a3a;
             --main-bg: #f8f9fa;
             --accent-color: #3498db;
             --text-main: #333;
             --text-side: #ecf0f1;
+        }
+
+        #music-notice {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: rgba(52, 152, 219, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            z-index: 1000;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        #music-notice:hover {
+            transform: scale(1.05);
+            background: var(--accent-color);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,7 +56,6 @@
             overflow: hidden;
         }
 
-        /* 左側邊欄 */
         .sidebar {
             background-color: var(--sidebar-bg);
             color: var(--text-side);
@@ -66,13 +85,9 @@
             padding: 4px 10px; 
             border-radius: 4px; 
             font-size: 0.75rem;
-            transition: 0.3s;
         }
-        .skill-tag:hover { background: var(--accent-color); }
 
-        /* 右側主內容 */
         .main-content { padding: 45px; }
-        
         .section { margin-bottom: 35px; }
         .section-title { 
             font-size: 1.4rem; 
@@ -83,18 +98,20 @@
             padding-bottom: 5px;
         }
 
-        .content-box { border-left: 2px solid #eee; padding-left: 20px; margin-left: 5px; }
-        .item-title { font-weight: bold; font-size: 1.1rem; color: #222; }
-        .item-date { color: var(--accent-color); font-size: 0.85rem; margin-bottom: 5px; font-weight: 600; }
         .item-desc { font-size: 0.95rem; color: #666; margin-top: 8px; line-height: 1.7; }
 
         @media (max-width: 768px) {
             .resume-container { grid-template-columns: 1fr; }
-            .main-content { padding: 30px; }
         }
     </style>
 </head>
 <body>
+
+    <div id="music-notice">🎵 點擊頁面開啟背景音樂</div>
+
+    <audio id="bg-music" loop>
+        <source src="music/Bgm.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="resume-container">
         <aside class="sidebar">
@@ -102,22 +119,10 @@
             <h1>柳立哲</h1>
             
             <div class="sidebar-info">
-                <div class="info-item">
-                    <span class="info-label">EDUCATION</span>
-                    亞洲大學 Asia University
-                </div>
-                <div class="info-item">
-                    <span class="info-label">STUDENT ID</span>
-                    AU114022058
-                </div>
-                <div class="info-item">
-                    <span class="info-label">PHONE</span>
-                    0902-172-126
-                </div>
-                <div class="info-item">
-                    <span class="info-label">EMAIL</span>
-                    liuleo951113@gmail.com
-                </div>
+                <div class="info-item"><span class="info-label">EDUCATION</span>亞洲大學 Asia University</div>
+                <div class="info-item"><span class="info-label">STUDENT ID</span>AU114022058</div>
+                <div class="info-item"><span class="info-label">PHONE</span>0902-172-126</div>
+                <div class="info-item"><span class="info-label">EMAIL</span>liuleo951113@gmail.com</div>
 
                 <div class="sidebar-info" style="margin-top: 20px;">
                     <span class="info-label">SKILLS</span>
@@ -126,7 +131,6 @@
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">Git / GitHub</span>
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Problem Solving</span>
                     </div>
                 </div>
             </div>
@@ -136,32 +140,33 @@
             <section class="section">
                 <h2 class="section-title">關於我</h2>
                 <p class="item-desc">
-                    你好，我是立哲！目前就讀於亞洲大學。我對程式開發充滿好奇心，喜歡透過程式碼解決生活中的問題。目前正致力於精進網頁前端技術與 Git 版本控制，希望能打造出簡潔且具備優質使用者體驗的網頁應用。
+                    你好，我是立哲！目前就讀於亞洲大學。我對程式開發充滿好奇心，喜歡透過程式碼解決生活中的問題。目前正致力於精進網頁前端技術與 Git 版本控制。
                 </p>
             </section>
 
             <section class="section">
                 <h2 class="section-title">教育背景</h2>
-                <div class="content-box">
-                    <p class="item-date">2022 - 2026 (在學中)</p>
-                    <p class="item-title">資訊工程學系</p>
-                    <p class="item-desc">在亞洲大學學習資工相關專業知識，並在實作過程中探索前端技術的無限可能。</p>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2 class="section-title">專案與期許</h2>
-                <div class="content-box">
-                    <p class="item-title">個人化履歷開發專案</p>
-                    <p class="item-desc">
-                        * 使用 HTML5、CSS3 與 JavaScript 獨立開發。<br>
-                        * 運用 Git 進行版本管理並部署於 GitHub Pages。<br>
-                        * 學習如何處理響應式佈局與跨團隊（協作者）開發流程。
-                    </p>
+                <div style="border-left: 2px solid #eee; padding-left: 20px;">
+                    <p style="color: var(--accent-color); font-weight: 600; font-size: 0.85rem;">2022 - 2026 (在學中)</p>
+                    <p style="font-weight: bold;">資訊工程學系</p>
+                    <p class="item-desc">在亞洲大學學習資工相關專業知識，並探索前端技術的無限可能。</p>
                 </div>
             </section>
         </main>
     </div>
+
+    <script>
+        const music = document.getElementById('bg-music');
+        const notice = document.getElementById('music-notice');
+
+        // 監聽第一次點擊來啟動音樂
+        document.body.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+                notice.style.display = 'none';
+            }
+        }, { once: true }); // once: true 確保這段程式碼只會跑一次
+    </script>
 
 </body>
 </html>
