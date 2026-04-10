@@ -7,7 +7,7 @@
     <style>
         /* 範本風格顏色設定 */
         :root {
-            --warm-brown: #8c7a6b; /* 標題與線條色 */
+            --warm-brown: #8c7a6b; 
             --light-gray: #f9f9f9;
             --text-gray: #555;
             --border-light: #ddd;
@@ -25,7 +25,7 @@
             color: #333;
         }
 
-        /* 頂部音樂提示 */
+        /* 頂部音樂提示：點擊消失，雙擊切換 */
         #music-notice {
             position: fixed;
             top: 15px;
@@ -33,12 +33,13 @@
             transform: translateX(-50%);
             background: var(--warm-brown);
             color: white;
-            padding: 8px 20px;
+            padding: 8px 25px;
             border-radius: 5px;
             font-size: 0.85rem;
             z-index: 1000;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
         }
 
         .resume-page {
@@ -52,7 +53,7 @@
             gap: 50px;
         }
 
-        /* --- 左側區域樣式 --- */
+        /* --- 左側區域 --- */
         .sidebar-col h1 {
             font-size: 2.8rem;
             color: var(--warm-brown);
@@ -74,10 +75,7 @@
             object-fit: cover;
         }
 
-        .side-section {
-            margin-bottom: 40px;
-        }
-
+        .side-section { margin-bottom: 40px; }
         .side-section h2 {
             font-size: 1.8rem;
             color: var(--warm-brown);
@@ -91,7 +89,6 @@
             line-height: 1.8;
             color: var(--text-gray);
             font-size: 0.95rem;
-            text-align: justify;
         }
 
         .contact-list {
@@ -102,11 +99,8 @@
             font-size: 0.95rem;
         }
 
-        /* --- 右側內容區域樣式 --- */
-        .main-col-section {
-            margin-bottom: 50px;
-        }
-
+        /* --- 右側內容 --- */
+        .main-col-section { margin-bottom: 50px; }
         .main-col-section h2 {
             font-size: 1.8rem;
             color: var(--warm-brown);
@@ -121,40 +115,14 @@
             margin-bottom: 35px;
         }
 
-        .date-col {
-            width: 100px;
-            font-size: 1.1rem;
-            color: var(--text-gray);
-        }
+        .date-col { width: 100px; font-size: 1.1rem; color: var(--text-gray); }
+        .detail-col { flex: 1; }
+        .detail-col h3 { font-size: 1.2rem; margin: 0 0 5px 0; color: #333; }
+        .detail-col .sub-title { color: var(--text-gray); display: block; margin-bottom: 10px; }
+        .detail-col p { font-size: 0.9rem; color: #777; line-height: 1.7; }
 
-        .detail-col {
-            flex: 1;
-        }
-
-        .detail-col h3 {
-            font-size: 1.2rem;
-            margin: 0 0 5px 0;
-            color: #333;
-        }
-
-        .detail-col .sub-title {
-            color: var(--text-gray);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .detail-col p {
-            font-size: 0.9rem;
-            color: #777;
-            line-height: 1.7;
-        }
-
-        /* 手機模式排版 */
         @media (max-width: 768px) {
-            .resume-page {
-                grid-template-columns: 1fr;
-                padding: 30px;
-            }
+            .resume-page { grid-template-columns: 1fr; padding: 30px; }
             .edu-item { flex-direction: column; }
             .date-col { margin-bottom: 10px; }
         }
@@ -162,7 +130,7 @@
 </head>
 <body>
 
-    <div id="music-notice">🎵 點擊頁面播放背景音樂</div>
+    <div id="music-notice">🎵 點擊開始音樂 | 連點兩下關閉/開啟</div>
     <audio id="bg-music" loop>
         <source src="music/Bgm.mp3" type="audio/mpeg">
     </audio>
@@ -170,7 +138,6 @@
     <div class="resume-page">
         <aside class="sidebar-col">
             <h1>柳立哲</h1>
-            
             <div class="profile-frame">
                 <img src="images/27396.jpg" alt="柳立哲" class="profile-photo">
             </div>
@@ -198,7 +165,7 @@
                     <div class="detail-col">
                         <h3>資訊工程學系</h3>
                         <span class="sub-title">亞洲大學</span>
-                        <p>專注於學習程式語言與電腦科學理論，並在課外時間積極鑽研前端技術實作。</p>
+                        <p>專注於學習程式語言與電腦科學理論，並在實作過程中探索前端技術與 AI 工具的應用。</p>
                     </div>
                 </div>
             </section>
@@ -210,15 +177,15 @@
                     <div class="detail-col">
                         <h3>網頁履歷開發</h3>
                         <span class="sub-title">個人專案</span>
-                        <p>運用 HTML5, CSS3, 與 JavaScript 實作具備響應式排版與背景音樂功能的個人化網頁。</p>
+                        <p>運用 HTML5, CSS3, 與 JavaScript 實作具備雙擊音效切換與響應式佈局的個人化網頁。</p>
                     </div>
                 </div>
                 <div class="exp-item">
                     <div class="date-col">2026年</div>
                     <div class="detail-col">
-                        <h3>Git 版本管理</h3>
-                        <span class="sub-title">GitHub 部署</span>
-                        <p>熟悉 Git 指令操作，並成功將個人專案部署至 GitHub Pages 進行公開展示。</p>
+                        <h3>Git 協作管理</h3>
+                        <span class="sub-title">版本控制系統</span>
+                        <p>熟悉 Git 流程（Add/Commit/Push），並具備跨帳號（Collaborator）協作專案的實務經驗。</p>
                     </div>
                 </div>
             </section>
@@ -229,13 +196,23 @@
         const music = document.getElementById('bg-music');
         const notice = document.getElementById('music-notice');
 
-        // 點擊頁面啟動音樂
+        // 1. 點擊第一下：播放音樂並隱藏提示 (應對瀏覽器自動播放限制)
         document.body.addEventListener('click', () => {
             if (music.paused) {
                 music.play();
-                notice.style.display = 'none';
+                notice.style.opacity = '0';
+                setTimeout(() => notice.style.display = 'none', 300);
             }
         }, { once: true });
+
+        // 2. 雙擊 (Double Click)：切換播放或暫停
+        document.body.addEventListener('dblclick', () => {
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        });
     </script>
 
 </body>
