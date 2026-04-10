@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>柳立哲 | 個人履歷 - 亞洲大學</title>
     <style>
-        /* 範本風格顏色設定 */
         :root {
             --warm-brown: #8c7a6b; 
             --light-gray: #f9f9f9;
@@ -25,7 +24,6 @@
             color: #333;
         }
 
-        /* 頂部音樂提示：點擊消失，雙擊切換 */
         #music-notice {
             position: fixed;
             top: 15px;
@@ -53,7 +51,6 @@
             gap: 50px;
         }
 
-        /* --- 左側區域 --- */
         .sidebar-col h1 {
             font-size: 2.8rem;
             color: var(--warm-brown);
@@ -99,7 +96,6 @@
             font-size: 0.95rem;
         }
 
-        /* --- 右側內容 --- */
         .main-col-section { margin-bottom: 50px; }
         .main-col-section h2 {
             font-size: 1.8rem;
@@ -150,9 +146,9 @@
             <section class="side-section">
                 <h2>聯絡我</h2>
                 <ul class="contact-list">
-                    <li>AU114022058</li>
-                    <li>0902-172-126</li>
-                    <li>liuleo951113@gmail.com</li>
+                    <li>學號：AU114022058</li>
+                    <li>信箱：liuleo951113@gmail.com</li>
+                    <li>電話：****-***-126</li>
                 </ul>
             </section>
         </aside>
@@ -196,7 +192,6 @@
         const music = document.getElementById('bg-music');
         const notice = document.getElementById('music-notice');
 
-        // 1. 點擊第一下：播放音樂並隱藏提示 (應對瀏覽器自動播放限制)
         document.body.addEventListener('click', () => {
             if (music.paused) {
                 music.play();
@@ -205,7 +200,6 @@
             }
         }, { once: true });
 
-        // 2. 雙擊 (Double Click)：切換播放或暫停
         document.body.addEventListener('dblclick', () => {
             if (music.paused) {
                 music.play();
